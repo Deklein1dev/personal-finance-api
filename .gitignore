@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# IDE
+.idea/
+.vscode/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Type checking
+.mypy_cache/
+.pyright/
+
+# Linting
+.ruff_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

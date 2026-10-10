@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "personal-finance-api"
+version = "0.1.0"
+description = "Personal finance management REST API"
+authors = ["Alex Nobirs <dekleinnorikson12@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.12,<4.0"
+fastapi = "^0.143.0"
+uvicorn = "^0.54.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
