@@ -1,9 +1,14 @@
 from fastapi import FastAPI
 
+from app.core.config import get_settings
+
+settings = get_settings()
+
 app = FastAPI(
-    title="Personal Finance API",
-    description="REST API for personal finance management",
-    version="0.1.0",
+    title=settings.APP_NAME,
+    description=settings.APP_DESCRIPTION,
+    version=settings.APP_VERSION,
+    debug=settings.DEBUG,
 )
 
 
