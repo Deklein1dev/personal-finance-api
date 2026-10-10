@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 
+from app.api.health.router import router as health_router
+from app.api.v1.router import api_router
 from app.core.config import get_settings
+
 
 settings = get_settings()
 
@@ -11,16 +14,9 @@ app = FastAPI(
     debug=settings.DEBUG,
 )
 
+app.include_router(health_router)
 
-@app.get("/health", tags=["Health"])
-async def health_check() -> dict[str, str]:
-    return {"status": "ok"}
-
-
-@app.get("/api/v1/info", tags=["Info"])
-async def get_info() -> dict[str, str]:
-    return {
-    "name": "Personal Finance API",
-    "version": "0.1.0",
-    "environment": "development",
-    }
+app.include_router(
+    api_router,
+    prefix=settings.API_V1_PREFIX,
+)
