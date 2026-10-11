@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.core.config import get_settings
+from app.api.dependencies import SettingsDep
 
 
 router = APIRouter(
@@ -10,9 +10,7 @@ router = APIRouter(
 
 
 @router.get("")
-async def get_info() -> dict[str, str]:
-    settings = get_settings()
-
+async def get_info(settings: SettingsDep) -> dict[str, str]:
     return {
         "name": settings.APP_NAME,
         "description": settings.APP_DESCRIPTION,
